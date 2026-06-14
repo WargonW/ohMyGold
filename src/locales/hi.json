@@ -1,0 +1,20 @@
+{
+  "currentPrice": "वर्तमान मूल्य",
+  "historicalData": "ऐतिहासिक डेटा",
+  "date": "तारीख",
+  "price": "मूल्य",
+  "change": "बदलाव",
+  "prev": "पिछला",
+  "next": "अगला",
+  "pageOf": "का",
+  "unitOzt": "ट्रॉय औंस",
+  "unitG": "ग्राम",
+  "unitKg": "किलोग्राम",
+  "range1m": "1 माह",
+  "range3m": "3 माह",
+  "range6m": "6 माह",
+  "range1y": "1 वर्ष",
+  "range5y": "5 वर्ष",
+  "rangeAll": "सभी",
+  "footerText": "डेटा Yahoo Finance COMEX गोल्ड फ्यूचर्स से। मूल्य केवल संदर्भ के लिए हैं।"
+}

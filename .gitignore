@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.env
+public/data/historical-data.json
+public/data/current-price.json

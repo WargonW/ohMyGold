@@ -1,0 +1,20 @@
+{
+  "currentPrice": "Aktueller Preis",
+  "historicalData": "Historische Daten",
+  "date": "Datum",
+  "price": "Preis",
+  "change": "Änderung",
+  "prev": "Zurück",
+  "next": "Weiter",
+  "pageOf": "von",
+  "unitOzt": "Feinunze",
+  "unitG": "Gramm",
+  "unitKg": "Kilogramm",
+  "range1m": "1M",
+  "range3m": "3M",
+  "range6m": "6M",
+  "range1y": "1J",
+  "range5y": "5J",
+  "rangeAll": "Alle",
+  "footerText": "Daten von Yahoo Finance COMEX Gold-Futures. Preise nur als Referenz."
+}

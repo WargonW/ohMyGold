@@ -1,0 +1,20 @@
+{
+  "currentPrice": "Current Price",
+  "historicalData": "Historical Data",
+  "date": "Date",
+  "price": "Price",
+  "change": "Change",
+  "prev": "Previous",
+  "next": "Next",
+  "pageOf": "of",
+  "unitOzt": "Troy Ounce",
+  "unitG": "Gram",
+  "unitKg": "Kilogram",
+  "range1m": "1M",
+  "range3m": "3M",
+  "range6m": "6M",
+  "range1y": "1Y",
+  "range5y": "5Y",
+  "rangeAll": "All",
+  "footerText": "Data sourced from Yahoo Finance COMEX Gold Futures. Prices are for reference only."
+}

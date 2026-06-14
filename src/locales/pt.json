@@ -1,0 +1,20 @@
+{
+  "currentPrice": "Preço Atual",
+  "historicalData": "Dados Históricos",
+  "date": "Data",
+  "price": "Preço",
+  "change": "Variação",
+  "prev": "Anterior",
+  "next": "Próximo",
+  "pageOf": "de",
+  "unitOzt": "Onça-troy",
+  "unitG": "Grama",
+  "unitKg": "Quilograma",
+  "range1m": "1M",
+  "range3m": "3M",
+  "range6m": "6M",
+  "range1y": "1A",
+  "range5y": "5A",
+  "rangeAll": "Tudo",
+  "footerText": "Dados do Yahoo Finance COMEX Futuros de Ouro. Preços apenas para referência."
+}

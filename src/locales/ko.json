@@ -1,0 +1,20 @@
+{
+  "currentPrice": "현재 가격",
+  "historicalData": "과거 데이터",
+  "date": "날짜",
+  "price": "가격",
+  "change": "변동",
+  "prev": "이전",
+  "next": "다음",
+  "pageOf": "/",
+  "unitOzt": "트로이온스",
+  "unitG": "그램",
+  "unitKg": "킬로그램",
+  "range1m": "1개월",
+  "range3m": "3개월",
+  "range6m": "6개월",
+  "range1y": "1년",
+  "range5y": "5년",
+  "rangeAll": "전체",
+  "footerText": "데이터 출처: Yahoo Finance COMEX 금 선물. 가격은 참고용입니다."
+}

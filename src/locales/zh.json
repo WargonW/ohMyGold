@@ -1,0 +1,20 @@
+{
+  "currentPrice": "当前金价",
+  "historicalData": "历史数据",
+  "date": "日期",
+  "price": "价格",
+  "change": "涨跌",
+  "prev": "上一页",
+  "next": "下一页",
+  "pageOf": "/",
+  "unitOzt": "盎司",
+  "unitG": "克",
+  "unitKg": "千克",
+  "range1m": "1月",
+  "range3m": "3月",
+  "range6m": "6月",
+  "range1y": "1年",
+  "range5y": "5年",
+  "rangeAll": "全部",
+  "footerText": "数据来源：雅虎财经 COMEX 黄金期货。价格仅供参考。"
+}

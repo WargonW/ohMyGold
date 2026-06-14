@@ -1,0 +1,20 @@
+{
+  "currentPrice": "السعر الحالي",
+  "historicalData": "البيانات التاريخية",
+  "date": "التاريخ",
+  "price": "السعر",
+  "change": "التغيير",
+  "prev": "السابق",
+  "next": "التالي",
+  "pageOf": "من",
+  "unitOzt": "أونصة تروي",
+  "unitG": "غرام",
+  "unitKg": "كيلوغرام",
+  "range1m": "شهر",
+  "range3m": "3 أشهر",
+  "range6m": "6 أشهر",
+  "range1y": "سنة",
+  "range5y": "5 سنوات",
+  "rangeAll": "الكل",
+  "footerText": "البيانات من Yahoo Finance COMEX عقود الذهب الآجلة. الأسعار للرجوع فقط."
+}

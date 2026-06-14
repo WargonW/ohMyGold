@@ -1,0 +1,20 @@
+{
+  "currentPrice": "Текущая цена",
+  "historicalData": "Исторические данные",
+  "date": "Дата",
+  "price": "Цена",
+  "change": "Изменение",
+  "prev": "Назад",
+  "next": "Далее",
+  "pageOf": "из",
+  "unitOzt": "Тройская унция",
+  "unitG": "Грамм",
+  "unitKg": "Килограмм",
+  "range1m": "1М",
+  "range3m": "3М",
+  "range6m": "6М",
+  "range1y": "1Г",
+  "range5y": "5Л",
+  "rangeAll": "Всё",
+  "footerText": "Данные Yahoo Finance COMEX Фьючерсы на золото. Цены только для справки."
+}

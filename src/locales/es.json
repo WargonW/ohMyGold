@@ -1,0 +1,20 @@
+{
+  "currentPrice": "Precio Actual",
+  "historicalData": "Datos Históricos",
+  "date": "Fecha",
+  "price": "Precio",
+  "change": "Cambio",
+  "prev": "Anterior",
+  "next": "Siguiente",
+  "pageOf": "de",
+  "unitOzt": "Onza Troy",
+  "unitG": "Gramo",
+  "unitKg": "Kilogramo",
+  "range1m": "1M",
+  "range3m": "3M",
+  "range6m": "6M",
+  "range1y": "1A",
+  "range5y": "5A",
+  "rangeAll": "Todo",
+  "footerText": "Datos de Yahoo Finance COMEX Futuros de Oro. Los precios son solo referencia."
+}

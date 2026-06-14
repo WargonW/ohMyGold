@@ -1,0 +1,20 @@
+{
+  "currentPrice": "Prix Actuel",
+  "historicalData": "Données Historiques",
+  "date": "Date",
+  "price": "Prix",
+  "change": "Variation",
+  "prev": "Précédent",
+  "next": "Suivant",
+  "pageOf": "de",
+  "unitOzt": "Once Troy",
+  "unitG": "Gramme",
+  "unitKg": "Kilogramme",
+  "range1m": "1M",
+  "range3m": "3M",
+  "range6m": "6M",
+  "range1y": "1A",
+  "range5y": "5A",
+  "rangeAll": "Tout",
+  "footerText": "Données de Yahoo Finance COMEX Futures Or. Les prix sont à titre indicatif uniquement."
+}

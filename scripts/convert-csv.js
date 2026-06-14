@@ -4,7 +4,12 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dataDir = path.join(__dirname, '..', 'data');
-const outputPath = path.join(__dirname, '..', 'public', 'data', 'historical-data.json');
+const outputDir = path.join(__dirname, '..', 'public', 'data');
+const outputPath = path.join(outputDir, 'historical-data.json');
+
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
 
 const allCsv = fs.readdirSync(dataDir).filter(f => f.endsWith('.csv'));
 const dailyFile = allCsv.find(f => f.includes('daily'));

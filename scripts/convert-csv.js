@@ -17,11 +17,11 @@ const csv = fs.readFileSync(csvPath, 'utf8');
 const lines = csv.trim().split('\n');
 const header = lines[0].split(',');
 
-const dateIdx = header.indexOf('date');
-const closeIdx = header.indexOf('close');
+const dateIdx = header.indexOf('Date') !== -1 ? header.indexOf('Date') : header.indexOf('date');
+const closeIdx = header.indexOf('Close_USD') !== -1 ? header.indexOf('Close_USD') : header.indexOf('close');
 
 if (dateIdx === -1 || closeIdx === -1) {
-  console.error('CSV must have date and close columns');
+  console.error('CSV headers:', header.join(', '));
   process.exit(1);
 }
 

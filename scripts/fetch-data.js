@@ -18,6 +18,7 @@ function fetch(url, redirects = 3) {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location && redirects > 0) {
+        res.resume();
         const redirectUrl = new URL(res.headers.location, url).toString();
         resolve(fetch(redirectUrl, redirects - 1));
         return;
@@ -102,6 +103,7 @@ async function main() {
     await updateCurrentPrice(goldData.price, goldData.updatedAt, exchangeRates);
     
     console.log('Data update complete');
+    process.exit(0);
   } catch (error) {
     console.error('Error fetching data:', error.message);
     process.exit(1);

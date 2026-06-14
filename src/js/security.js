@@ -1,4 +1,4 @@
-const ALLOWED_DOMAINS = [];
+const ALLOWED_DOMAINS = __ALLOWED_DOMAINS__;
 
 function checkDomain() {
   if (ALLOWED_DOMAINS.length === 0) return true;
@@ -12,8 +12,13 @@ function checkDomain() {
 
 window.__securityCheck = checkDomain;
 
-setInterval(() => {
-  if (!checkDomain()) {
-    document.body.innerHTML = '';
-  }
-}, 30000);
+if (ALLOWED_DOMAINS.length > 0) {
+  setInterval(() => {
+    if (!checkDomain()) {
+      document.body.innerHTML = '';
+    }
+  }, 10000);
+}
+
+console.log('%cProtected by OhMyGold', 'font-size:24px;font-weight:bold;color:#3B82F6');
+console.log('%cThis website is protected. Unauthorized cloning or reproduction is prohibited.', 'font-size:14px;color:#6B7280');

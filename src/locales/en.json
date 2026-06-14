@@ -1,4 +1,6 @@
 {
+  "title": "OhMyGold - International Gold Price Today | XAU/USD Spot Price",
+  "description": "Real-time international gold price with 20-year historical chart. Support multiple currencies (USD, CNY, EUR, GBP, JPY), units and languages.",
   "currentPrice": "Current Price",
   "historicalData": "Historical Data",
   "date": "Date",
@@ -7,6 +9,7 @@
   "prev": "Previous",
   "next": "Next",
   "pageOf": "of",
+  "goToPage": "Go to page",
   "unitOzt": "Troy Ounce",
   "unitG": "Gram",
   "unitKg": "Kilogram",
@@ -14,7 +17,9 @@
   "range3m": "3M",
   "range6m": "6M",
   "range1y": "1Y",
+  "range3y": "3Y",
   "range5y": "5Y",
+  "range10y": "10Y",
   "rangeAll": "All",
   "footerText": "Data sourced from Yahoo Finance COMEX Gold Futures. Prices are for reference only."
 }

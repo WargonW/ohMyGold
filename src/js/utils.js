@@ -64,8 +64,14 @@ function aggregateData(data, range) {
     case '1y':
       startDate = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
       break;
+    case '3y':
+      startDate = new Date(now.getFullYear() - 3, now.getMonth(), now.getDate());
+      break;
     case '5y':
       startDate = new Date(now.getFullYear() - 5, now.getMonth(), now.getDate());
+      break;
+    case '10y':
+      startDate = new Date(now.getFullYear() - 10, now.getMonth(), now.getDate());
       break;
     default:
       return data;
@@ -76,15 +82,7 @@ function aggregateData(data, range) {
   
   if (filtered.length === 0) return data;
   
-  const monthsDiff = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-  
-  if (monthsDiff <= 3) {
-    return filtered;
-  } else if (monthsDiff <= 12) {
-    return aggregateWeekly(filtered);
-  } else {
-    return aggregateMonthly(filtered);
-  }
+  return filtered;
 }
 
 function aggregateWeekly(data) {
@@ -95,7 +93,7 @@ function aggregateWeekly(data) {
     const weekStart = new Date(d);
     weekStart.setDate(d.getDate() - d.getDay());
     const key = weekStart.toISOString().split('T')[0];
-    weeks[key] = price;
+    if (!weeks[key]) weeks[key] = price;
   });
   
   return Object.entries(weeks).map(([date, price]) => [date, price]);
@@ -106,7 +104,7 @@ function aggregateMonthly(data) {
   
   data.forEach(([date, price]) => {
     const key = date.substring(0, 7);
-    months[key] = price;
+    if (!months[key]) months[key] = price;
   });
   
   return Object.entries(months).map(([month, price]) => [month + '-01', price]);

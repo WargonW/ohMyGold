@@ -31,7 +31,7 @@ function renderTable() {
   const pageData = tableData.slice(start, end);
   
   let html = '';
-  for (let i = pageData.length - 1; i >= 0; i--) {
+  for (let i = 0; i < pageData.length; i++) {
     const [date, price] = pageData[i];
     const idx = tableData.indexOf(pageData[i]);
     const prevPrice = idx < tableData.length - 1 ? tableData[idx + 1][1] : price;
@@ -70,6 +70,12 @@ function renderTable() {
     const t = window.i18n ? window.i18n.t('pageOf') : 'of';
     pageInfo.textContent = `${currentPage} ${t} ${totalPages}`;
   }
+
+  const pageInput = document.getElementById('pageInput');
+  if (pageInput) {
+    pageInput.value = currentPage;
+    pageInput.max = totalPages;
+  }
   
   if (prevBtn) prevBtn.disabled = currentPage <= 1;
   if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
@@ -90,4 +96,13 @@ function prevPage() {
   }
 }
 
-window.tableModule = { initTable, updateTableData, nextPage, prevPage };
+function goToPage(page) {
+  const totalPages = Math.ceil(tableData.length / ROWS_PER_PAGE);
+  const p = Math.max(1, Math.min(totalPages, parseInt(page, 10) || 1));
+  if (p !== currentPage) {
+    currentPage = p;
+    renderTable();
+  }
+}
+
+window.tableModule = { initTable, updateTableData, nextPage, prevPage, goToPage };

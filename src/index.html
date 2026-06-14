@@ -3,10 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OhMyGold - International Gold Price</title>
+
+  <title>OhMyGold - International Gold Price Today | XAU/USD Spot Price</title>
   <meta name="description" content="Real-time international gold price with 20-year historical chart. Support multiple currencies, units and languages.">
+
+  <link rel="canonical" href="https://ohmygold.com/">
+
+  <link rel="alternate" hreflang="en" href="https://ohmygold.com/?lang=en">
+  <link rel="alternate" hreflang="zh" href="https://ohmygold.com/?lang=zh">
+  <link rel="alternate" hreflang="ja" href="https://ohmygold.com/?lang=ja">
+  <link rel="alternate" hreflang="ko" href="https://ohmygold.com/?lang=ko">
+  <link rel="alternate" hreflang="es" href="https://ohmygold.com/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://ohmygold.com/?lang=fr">
+  <link rel="alternate" hreflang="de" href="https://ohmygold.com/?lang=de">
+  <link rel="alternate" hreflang="pt" href="https://ohmygold.com/?lang=pt">
+  <link rel="alternate" hreflang="ru" href="https://ohmygold.com/?lang=ru">
+  <link rel="alternate" hreflang="ar" href="https://ohmygold.com/?lang=ar">
+  <link rel="alternate" hreflang="hi" href="https://ohmygold.com/?lang=hi">
+  <link rel="alternate" hreflang="x-default" href="https://ohmygold.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ohmygold.com/">
+  <meta property="og:title" content="OhMyGold - International Gold Price Today">
+  <meta property="og:description" content="Real-time international gold price with 20-year historical chart. Support multiple currencies, units and languages.">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OhMyGold - International Gold Price Today">
+  <meta name="twitter:description" content="Real-time international gold price with 20-year historical chart. Support multiple currencies, units and languages.">
+
+  <script type="application/ld+json" id="ld-website">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OhMyGold",
+    "url": "https://ohmygold.com/",
+    "description": "Real-time international gold price with 20-year historical chart",
+    "inLanguage": ["en", "zh", "ja", "ko", "es", "fr", "de", "pt", "ru", "ar", "hi"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ohmygold.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json" id="ld-price">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Gold Spot Price",
+    "category": "Precious Metals",
+    "url": "https://ohmygold.com/",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": ""
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 <body>
   <header class="header">
@@ -37,10 +98,12 @@
   <main class="main">
     <section class="price-card">
       <div class="price-label" data-i18n="currentPrice">Current Price</div>
-      <div class="price-value" id="priceValue">--</div>
+      <div class="price-value" id="priceValue">
+        <span class="price-symbol" id="priceSymbol"></span>
+        <span id="priceAmount">--</span>
+        <span class="price-unit" id="priceUnit"></span>
+      </div>
       <div class="price-meta">
-        <span id="priceUnit">USD / oz t</span>
-        <span class="price-separator">|</span>
         <span id="priceDate">--</span>
       </div>
     </section>
@@ -68,11 +131,22 @@
         <button class="time-btn" data-range="3m" data-i18n="range3m">3M</button>
         <button class="time-btn" data-range="6m" data-i18n="range6m">6M</button>
         <button class="time-btn" data-range="1y" data-i18n="range1y">1Y</button>
+        <button class="time-btn" data-range="3y" data-i18n="range3y">3Y</button>
         <button class="time-btn" data-range="5y" data-i18n="range5y">5Y</button>
+        <button class="time-btn" data-range="10y" data-i18n="range10y">10Y</button>
         <button class="time-btn active" data-range="all" data-i18n="rangeAll">All</button>
       </div>
       <div class="chart-container">
         <canvas id="priceChart"></canvas>
+      </div>
+      <div class="navigator-container">
+        <div class="navigator-mask navigator-mask-left"></div>
+        <div class="navigator-window">
+          <div class="navigator-handle navigator-handle-left"></div>
+          <div class="navigator-handle navigator-handle-right"></div>
+        </div>
+        <div class="navigator-mask navigator-mask-right"></div>
+        <canvas id="navigatorChart"></canvas>
       </div>
     </section>
 
@@ -93,6 +167,10 @@
       <div class="pagination">
         <button id="prevPage" class="btn" data-i18n="prev">Previous</button>
         <span id="pageInfo">--</span>
+        <span class="page-jump">
+          <label for="pageInput" class="sr-only" data-i18n="goToPage">Go to page</label>
+          <input type="number" id="pageInput" min="1" value="1">
+        </span>
         <button id="nextPage" class="btn" data-i18n="next">Next</button>
       </div>
     </section>
@@ -106,6 +184,7 @@
   <script type="module" src="js/i18n.js"></script>
   <script type="module" src="js/utils.js"></script>
   <script type="module" src="js/chart.js"></script>
+  <script type="module" src="js/navigator.js"></script>
   <script type="module" src="js/table.js"></script>
   <script type="module" src="js/app.js"></script>
 </body>

@@ -1,4 +1,6 @@
 {
+  "title": "OhMyGold - Preço do Ouro Internacional Hoje | Preço Spot XAU/USD",
+  "description": "Preço internacional do ouro em tempo real com gráfico histórico de 20 anos. Suporta múltiplas moedas, unidades e idiomas.",
   "currentPrice": "Preço Atual",
   "historicalData": "Dados Históricos",
   "date": "Data",
@@ -7,6 +9,7 @@
   "prev": "Anterior",
   "next": "Próximo",
   "pageOf": "de",
+  "goToPage": "Ir para a página",
   "unitOzt": "Onça-troy",
   "unitG": "Grama",
   "unitKg": "Quilograma",
@@ -14,7 +17,9 @@
   "range3m": "3M",
   "range6m": "6M",
   "range1y": "1A",
+  "range3y": "3A",
   "range5y": "5A",
+  "range10y": "10A",
   "rangeAll": "Tudo",
   "footerText": "Dados do Yahoo Finance COMEX Futuros de Ouro. Preços apenas para referência."
 }

@@ -7,9 +7,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const historicalPath = path.join(__dirname, '..', 'public', 'data', 'historical-data.json');
 const currentPath = path.join(__dirname, '..', 'public', 'data', 'current-price.json');
 
-function fetch(url) {
+function fetch(url, redirects = 3) {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location && redirects > 0) {
+        const redirectUrl = new URL(res.headers.location, url).toString();
+        resolve(fetch(redirectUrl, redirects - 1));
+        return;
+      }
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => {

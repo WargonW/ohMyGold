@@ -39,6 +39,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: ohmygold
           directory: dist
+          branch: master
           production: true
       
       - name: Commit updated data

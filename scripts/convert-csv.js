@@ -3,8 +3,15 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const csvPath = path.join(__dirname, '..', 'data', 'gold_price_history_20y.csv');
+const csvDir = path.join(__dirname, '..', 'data');
+const csvFiles = fs.readdirSync(csvDir).filter(f => f.endsWith('.csv') && f.includes('daily'));
+const csvPath = path.join(csvDir, csvFiles[0]);
 const outputPath = path.join(__dirname, '..', 'public', 'data', 'historical-data.json');
+
+if (!fs.existsSync(csvPath)) {
+  console.error('No daily CSV file found in data/');
+  process.exit(1);
+}
 
 const csv = fs.readFileSync(csvPath, 'utf8');
 const lines = csv.trim().split('\n');
@@ -12,6 +19,11 @@ const header = lines[0].split(',');
 
 const dateIdx = header.indexOf('date');
 const closeIdx = header.indexOf('close');
+
+if (dateIdx === -1 || closeIdx === -1) {
+  console.error('CSV must have date and close columns');
+  process.exit(1);
+}
 
 const data = [];
 for (let i = 1; i < lines.length; i++) {

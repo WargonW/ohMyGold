@@ -26,6 +26,9 @@ jobs:
         run: |
           echo "ALLOWED_DOMAINS=${{ secrets.ALLOWED_DOMAINS }}" > .env
       
+      - name: Generate historical data from CSV
+        run: npm run convert-csv
+      
       - name: Fetch latest gold price data
         run: npm run fetch-data
       

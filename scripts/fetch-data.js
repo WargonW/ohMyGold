@@ -62,12 +62,12 @@ async function updateHistoricalData(newPrice, date) {
     historical = JSON.parse(fs.readFileSync(historicalPath, 'utf8'));
   }
   
-  const lastDate = historical.data.length > 0 
-    ? historical.data[historical.data.length - 1][0] 
+  const latestDate = historical.data.length > 0 
+    ? historical.data[0][0] 
     : null;
   
-  if (lastDate !== date) {
-    historical.data.push([date, newPrice]);
+  if (latestDate !== date) {
+    historical.data.unshift([date, newPrice]);
     historical.metadata.lastUpdated = date;
     fs.writeFileSync(historicalPath, JSON.stringify(historical, null, 2));
     console.log(`Added new record: ${date} = $${newPrice}`);

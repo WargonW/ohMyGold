@@ -44,11 +44,11 @@ for (const date of allDates) {
   const price = hourlyData[date] || dailyData[date];
   if (price) merged.push([date, price]);
 }
-merged.sort((a, b) => a[0].localeCompare(b[0]));
+merged.sort((a, b) => b[0].localeCompare(a[0]));
 
 const output = {
   metadata: {
-    lastUpdated: merged[merged.length - 1][0],
+    lastUpdated: merged[0][0],
     source: 'Yahoo Finance COMEX Gold Futures (GC=F)',
     unit: 'USD/oz t',
     totalRecords: merged.length

@@ -309,7 +309,7 @@ function createChart(canvasId) {
     }
     if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && crosshairPinned && !e.repeat) {
       e.preventDefault();
-      const dir = e.key === 'ArrowLeft' ? -1 : 1;
+      const dir = e.key === 'ArrowLeft' ? 1 : -1;
       moveCrosshair(dir);
       startKeyRepeat(dir);
     }

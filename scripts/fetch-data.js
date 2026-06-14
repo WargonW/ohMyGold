@@ -4,8 +4,15 @@ import https from 'https';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const historicalPath = path.join(__dirname, '..', 'public', 'data', 'historical-data.json');
-const currentPath = path.join(__dirname, '..', 'public', 'data', 'current-price.json');
+const dataDir = path.join(__dirname, '..', 'public', 'data');
+const historicalPath = path.join(dataDir, 'historical-data.json');
+const currentPath = path.join(dataDir, 'current-price.json');
+
+function ensureDataDir() {
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+}
 
 function fetch(url, redirects = 3) {
   return new Promise((resolve, reject) => {
@@ -81,6 +88,8 @@ async function updateCurrentPrice(price, updatedAt, exchangeRates) {
 
 async function main() {
   try {
+    ensureDataDir();
+    
     console.log('Fetching gold price...');
     const goldData = await fetchGoldPrice();
     

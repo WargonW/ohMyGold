@@ -15,7 +15,7 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://ohmygold.pages.dev/?lang=ar"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://ohmygold.pages.dev/?lang=hi"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ohmygold.pages.dev/"/>
-    <changefreq>hourly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 </urlset>
